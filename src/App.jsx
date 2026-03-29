@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Login from "./components/Login";
-import BookList from "./components/BookList";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("jwtToken"));
@@ -15,10 +15,7 @@ function App() {
       {!token ? (
         <Login onLogin={setToken} />
       ) : (
-        <>
-          <button onClick={handleLogout}>Logout</button>
-          <BookList />
-        </>
+        <Dashboard onLogout={handleLogout} />
       )}
     </div>
   );
